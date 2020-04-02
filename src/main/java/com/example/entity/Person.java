@@ -21,7 +21,11 @@ public class Person implements Player {
         int countOfMatches;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите количество спичек: ");
-        countOfMatches = Integer.parseInt(scanner.next());
+        try {
+            countOfMatches = Integer.parseInt(scanner.next());
+        } catch (NumberFormatException e) {
+            return 0; // return incorrect number if entered is NaN
+        }
         return countOfMatches;
     }
 }
